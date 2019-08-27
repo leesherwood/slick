@@ -1147,9 +1147,15 @@
         }
 
         if (_.options.vertical === false) {
-            targetLeft = ((slideIndex * _.slideWidth) * -1) + _.slideOffset;
+            if (_.slideCount <= _.options.slidesToShow)
+                targetLeft = _.slideOffset;
+            else
+                targetLeft = ((slideIndex * _.slideWidth) * -1) + _.slideOffset;
         } else {
-            targetLeft = ((slideIndex * verticalHeight) * -1) + verticalOffset;
+            if (_.slideCount <= _.options.slidesToShow)
+                targetLeft = verticalOffset;
+            else
+                targetLeft = ((slideIndex * verticalHeight) * -1) + verticalOffset;
         }
 
         if (_.options.variableWidth === true) {
